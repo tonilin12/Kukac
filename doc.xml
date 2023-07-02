@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kukac</name>
+    </assembly>
+    <members>
+        <member name="T:Kukac.ai.CustomAI">
+            <summary>
+            Az osztály, amely az AI logikát implementálja a Kukac játékhoz.
+            </summary>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.initAdat(Kukac.interfaces.Adat)">
+            <summary>
+            Az AI adatok inicializálása.
+            </summary>
+            <param name="adat">Az adatok objektuma</param>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.initKukac(Kukac.interfaces.Test)">
+            <summary>
+            Az AI inicializálása a Kukac objektummal.
+            </summary>
+            <param name="kukac">A Kukac objektum</param>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.setIrany">
+            <summary>
+            Az AI irányának beállítása.
+            </summary>
+            <returns>Az AI következő lépésének iránya</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.AStarPathSearch(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            A* algoritmus használata a legközelebbi út megtalálásához egy adott célponthoz.
+            </summary>
+            <param name="start">A kezdőpont</param>
+            <param name="goal">A cél</param>
+            <returns>A legközelebbi út pontjainak listája</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.GetValidNeighbors(System.Windows.Point)">
+            <summary>
+            Az adott pontból elérhető érvényes szomszédok listájának megszerzése.
+            </summary>
+            <param name="point">A kiinduló pont</param>
+            <returns>Az érvényes szomszédok listája</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.IsInBounds(System.Int32,System.Int32)">
+            <summary>
+            Ellenőrzi, hogy egy adott pont a pályán belül van-e.
+            </summary>
+            <param name="x">Az X koordináta</param>
+            <param name="y">Az Y koordináta</param>
+            <returns>Igaz, ha a pont a pályán belül van, különben hamis</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.IsPositionValid(System.Int32,System.Int32)">
+            <summary>
+            Ellenőrzi, hogy egy adott pozíció érvényes-e a pályán.
+            </summary>
+            <param name="x">Az X koordináta</param>
+            <param name="y">Az Y koordináta</param>
+            <returns>Igaz, ha a pozíció érvényes, különben hamis</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.ReconstructPath(System.Collections.Generic.Dictionary{System.Windows.Point,System.Windows.Point},System.Windows.Point)">
+            <summary>
+            Az útvonal újjáépítése a kezdőpontról a célpontra.
+            </summary>
+            <param name="cameFrom">A pontok közötti kapcsolatok</param>
+            <param name="current">A jelenlegi pont</param>
+            <returns>Az útvonal pontjainak listája</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.CalculateHeuristic(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Heurisztika kiszámítása két pont között (négyzetes Euklideszi távolság használata).
+            </summary>
+            <param name="p1">Az első pont</param>
+            <param name="p2">A második pont</param>
+            <returns>A heurisztika értéke</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.CalculateDistance(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Két pont közötti négyzetes távolság kiszámítása.
+            </summary>
+            <param name="p1">Az első pont</param>
+            <param name="p2">A második pont</param>
+            <returns>A két pont közötti négyzetes távolság</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.GetDirection(System.Int32,System.Int32)">
+            <summary>
+            Az irány lekérése az X és Y koordináták alapján.
+            </summary>
+            <param name="dx">Az X irány</param>
+            <param name="dy">Az Y irány</param>
+            <returns>Az irány</returns>
+        </member>
+        <member name="T:Kukac.ai.CustomAI.PriorityQueue`1">
+            <summary>
+            A* algoritmusnál használt prioritási sor.
+            </summary>
+            <typeparam name="T">Az elem típusa</typeparam>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.PriorityQueue`1.Enqueue(`0)">
+            <summary>
+            Elem hozzáadása a prioritási sorhoz.
+            </summary>
+            <param name="item">Az elem</param>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.PriorityQueue`1.Dequeue">
+            <summary>
+            Elem eltávolítása a prioritási sorból.
+            </summary>
+            <returns>Az eltávolított elem</returns>
+        </member>
+        <member name="M:Kukac.ai.CustomAI.PriorityQueue`1.SwapElements(System.Int32,System.Int32)">
+            <summary>
+            Két elem helycseréje a prioritási sorban.
+            </summary>
+            <param name="index1">Az első elem indexe</param>
+            <param name="index2">A második elem indexe</param>
+        </member>
+        <member name="T:Kukac.ai.CustomAI.AStarNode">
+            <summary>
+            A* algoritmusnál használt csúcs a prioritási sorban.
+            </summary>
+        </member>
+        <member name="T:Kukac.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Kukac.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Kukac.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Kukac.kukac.Ablak">
+            <summary>
+            Interaction logic for Ablak.xaml
+            </summary>
+            <summary>
+            Ablak
+            </summary>
+        </member>
+        <member name="M:Kukac.kukac.Ablak.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Kukac.kukac.Board">
+            <summary>
+            Interaction logic for Board.xaml
+            </summary>
+            <summary>
+            Board
+            </summary>
+        </member>
+        <member name="F:Kukac.kukac.Board.logic">
+            Creates new form Panel 
+            
+        </member>
+        <member name="F:Kukac.kukac.Board.egesz">
+            Flag ami azt jelzi a rajzolónak, hogy a pálya egészét rajzolja ki, vagy
+            csak a változásokat.
+            true - a pálya egésze
+            false - változások
+        </member>
+        <member name="M:Kukac.kukac.Board.initComponents">
+            This method is called from within the constructor to
+            initialize the form.
+            WARNING: Do NOT modify this code. The content of this method is
+            always regenerated by the Form Editor.
+        </member>
+        <member name="M:Kukac.kukac.Board.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Kukac.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Kukac.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Kukac.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="M:Kukac.types.Kukac.meghal">
+            <summary>
+            Meghalasztja a kukacot
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
