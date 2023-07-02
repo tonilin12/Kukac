@@ -12,7 +12,6 @@ class CustomAI : Ai
 {
     private Adat adat;
     private Test test;
-    int k=2;
 
 
     /// <summary>
